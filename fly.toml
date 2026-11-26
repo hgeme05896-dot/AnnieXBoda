@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for anniexboda-aq1hya on 2026-11-26T04:08:59Z
+# fly.toml app configuration file generated for anniexboda-aq1hya on 2026-11-26T04:14:58Z
 #
 # See https://docs.fly.io/reference/configuration for information about how to use this file.
 #
@@ -25,7 +25,7 @@ primary_region = 'fra'
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = 'off'
+  auto_stop_machines = false
   auto_start_machines = true
   min_machines_running = 1
 
@@ -33,3 +33,11 @@ primary_region = 'fra'
   cpu_kind = 'shared'
   cpus = 4
   memory_mb = 2048
+
+[[vm]]
+  cpu_kind = 'performance'
+  cpus = 8
+  memory_mb = 20480
+  memory = '20gb'
+  processes = ['app']
+  size = 'performance-8x'
